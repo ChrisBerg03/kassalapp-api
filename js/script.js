@@ -13,4 +13,17 @@ fetch("https://kassal.app/api/v1/products", {
     })
     .then((productResult) => {
         products = productResult;
+
+        for (const prod of products) {
+            display(...prod);
+        }
     });
+
+function displayProducts(prod) {
+    const prodDiv = document.createElement("div");
+    const prodName = document.createElement("h2");
+    prodName.innerText = prod.name;
+    const prodImg = document.createElement("img");
+    prodDiv.appendChild(prodName);
+    prodDiv.appendChild(prodImg);
+}
